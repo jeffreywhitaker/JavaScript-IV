@@ -33,8 +33,11 @@ class Student extends Person {
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
     };
-    listsSubjects(){
-        return `${this.name}'s favorite subjects are: ${this.favSubjects}!`
+    listsSubjects = () => {
+        this.favSubjects.forEach = (element) => {
+            return `${this.name}'s favorite subjects are: ${element}!`
+        };
+        
     };
     PRAssignment(subject){
         return `${this.name} has submitted a PR for ${subject}.`
@@ -51,10 +54,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = attributes.favInstructor;
     };
     standUp(slackChannel){
-        return `${student.name} announces to ${slackChannel} @channel standy times!`
+        return `${this.name} announces to ${slackChannel} @channel standy times!`
     };
-    debugsCode(studentObject){
-        return `${this.name} debugs ${student.name}'s code on ${subject}.`
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student}'s code on ${subject}.`
     };
 };
 
@@ -111,5 +114,9 @@ const pm1 = new ProjectManager({
 
 console.log(instructor1.age);
 console.log(instructor1.grade('JS IV', 'Jeff'));
-console.log(student2.greeting());
-console.log(student1.listsSubjects());
+console.log(student1.greeting());
+console.log(student2.listsSubjects());
+console.log(student2.PRAssignment('JS XXII'));
+console.log(student1.sprintChallenge('plant psychology 101'));
+console.log(pm1.standUp('Team_Jonathan'));
+console.log(pm1.debugsCode('Jeff', 'Javascript III'));
