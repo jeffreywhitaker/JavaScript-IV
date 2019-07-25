@@ -33,11 +33,10 @@ class Student extends Person {
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
     };
-    listsSubjects = () => {
-        this.favSubjects.forEach = (element) => {
-            return `${this.name}'s favorite subjects are: ${element}!`
-        };
-        
+    listsSubjects() {
+        this.favSubjects.forEach((element) => {
+            console.log(this.name + "'s favorite subjects are:" + element);
+        });
     };
     PRAssignment(subject){
         return `${this.name} has submitted a PR for ${subject}.`
@@ -115,7 +114,7 @@ const pm1 = new ProjectManager({
 console.log(instructor1.age);
 console.log(instructor1.grade('JS IV', 'Jeff'));
 console.log(student1.greeting());
-console.log(student2.listsSubjects());
+student2.listsSubjects();
 console.log(student2.PRAssignment('JS XXII'));
 console.log(student1.sprintChallenge('plant psychology 101'));
 console.log(pm1.standUp('Team_Jonathan'));
